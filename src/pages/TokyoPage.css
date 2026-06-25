@@ -1,0 +1,425 @@
+.tokyo-page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--black);
+  color: var(--paper);
+}
+
+.tokyo-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 0 clamp(18px, 5vw, 72px);
+  background: transparent;
+  color: var(--paper);
+}
+
+.tokyo-header-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 34px);
+}
+
+.tokyo-brand,
+.tokyo-nav a,
+.tokyo-back,
+.tokyo-kicker,
+.tokyo-progress-label {
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.tokyo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  transition: color 180ms ease;
+}
+
+.tokyo-brand-mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 0 0 5px rgba(201, 42, 42, 0.16);
+}
+
+.tokyo-back,
+.tokyo-nav {
+  color: rgba(251, 248, 241, 0.82);
+  text-shadow: 0 1px 12px rgba(5, 5, 5, 0.32);
+}
+
+.tokyo-back,
+.tokyo-nav a {
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.tokyo-brand:hover,
+.tokyo-brand:focus-visible,
+.tokyo-back:hover,
+.tokyo-back:focus-visible,
+.tokyo-nav a:hover,
+.tokyo-nav a:focus-visible {
+  color: var(--paper);
+  text-shadow: 0 1px 16px rgba(5, 5, 5, 0.54);
+}
+
+.tokyo-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+}
+
+.tokyo-intro {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 116px clamp(18px, 5vw, 72px) clamp(70px, 8vw, 118px);
+  background:
+    radial-gradient(circle at 82% 30%, rgba(201, 42, 42, 0.16), transparent 26rem),
+    linear-gradient(180deg, #050505 0%, #0b0a09 100%);
+}
+
+.tokyo-intro-inner {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+}
+
+.tokyo-kicker {
+  margin: 0;
+  color: var(--red);
+}
+
+.tokyo-title-row {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(18px, 3vw, 46px);
+  margin-top: 18px;
+}
+
+.tokyo-title {
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(5.8rem, 17vw, 16.5rem);
+  font-weight: 950;
+  letter-spacing: -0.07em;
+  line-height: 0.78;
+}
+
+.tokyo-kanji {
+  margin: 0 0 0.05em;
+  color: var(--red);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.tokyo-subtitle {
+  margin: clamp(26px, 4vw, 46px) 0 0;
+  max-width: 780px;
+  color: var(--paper);
+  font-size: clamp(1.6rem, 3vw, 3.3rem);
+  font-weight: 620;
+  line-height: 1.05;
+}
+
+.tokyo-description {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: rgba(251, 248, 241, 0.66);
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.tokyo-scroll-scene {
+  position: relative;
+  height: 250vh;
+  background: #ded5c8;
+}
+
+.tokyo-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tokyo-bg-layer,
+.tokyo-overlay,
+.tokyo-temple-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.tokyo-bg-layer {
+  z-index: 1;
+  opacity: 1;
+}
+
+.tokyo-bg-layer img,
+.tokyo-temple-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tokyo-bg-layer img {
+  object-position: center;
+}
+
+.tokyo-overlay {
+  z-index: 2;
+  opacity: 0;
+  background: transparent;
+}
+
+.tokyo-temple-layer {
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  pointer-events: none;
+}
+
+.tokyo-temple-card {
+  width: calc(100vw + 4px);
+  height: auto;
+  max-height: none;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  opacity: 0;
+  clip-path: inset(12% 0 0 0);
+  box-shadow: none;
+}
+
+.tokyo-temple-card img {
+  display: block;
+  width: calc(100vw + 4px);
+  height: auto;
+  object-position: center bottom;
+  object-fit: fill;
+  filter: none;
+}
+
+.tokyo-scene-content {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 72px) clamp(88px, 12vh, 132px);
+}
+
+.tokyo-progress-label {
+  color: rgba(251, 248, 241, 0.72);
+}
+
+.tokyo-scene-title {
+  margin: 18px 0 0;
+  max-width: 780px;
+  color: var(--paper);
+  font-size: clamp(4rem, 11vw, 11rem);
+  font-weight: 950;
+  letter-spacing: -0.07em;
+  line-height: 0.8;
+}
+
+.tokyo-scene-title span {
+  display: inline-block;
+  margin-left: 0.08em;
+  color: var(--red);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  font-size: 0.46em;
+  letter-spacing: 0;
+  vertical-align: baseline;
+}
+
+.tokyo-scene-copy {
+  max-width: 480px;
+  margin: 18px 0 0;
+  color: rgba(251, 248, 241, 0.86);
+  font-size: clamp(1.15rem, 1.8vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.tokyo-notes {
+  background: var(--paper);
+  color: var(--text);
+  padding: clamp(86px, 10vw, 150px) clamp(18px, 5vw, 72px);
+}
+
+.tokyo-notes-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.tokyo-notes-title {
+  margin: 18px 0 0;
+  max-width: 900px;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 650;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.tokyo-notes-copy {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.tokyo-note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(44px, 6vw, 74px);
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.tokyo-note {
+  min-height: 132px;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  background: var(--paper);
+  color: var(--text);
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 650;
+}
+
+.tokyo-cta {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding: clamp(74px, 9vw, 122px) clamp(18px, 5vw, 72px);
+  background: var(--black);
+  color: var(--paper);
+  text-align: center;
+}
+
+.tokyo-cta p {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 6rem);
+  font-weight: 760;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.tokyo-cta-button,
+.tokyo-cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 999px;
+  font-weight: 760;
+}
+
+.tokyo-cta-button {
+  margin-top: 8px;
+  padding: 0 24px;
+  color: var(--black);
+  background: var(--paper);
+}
+
+.tokyo-cta-button:hover,
+.tokyo-cta-button:focus-visible {
+  color: var(--paper);
+  background: var(--red);
+}
+
+.tokyo-cta-link {
+  color: rgba(251, 248, 241, 0.58);
+}
+
+.tokyo-cta-link:hover,
+.tokyo-cta-link:focus-visible {
+  color: var(--paper);
+}
+
+@media (max-width: 920px) {
+  .tokyo-header {
+    position: absolute;
+  }
+
+  .tokyo-nav {
+    display: none;
+  }
+
+  .tokyo-title-row {
+    display: block;
+  }
+
+  .tokyo-kanji {
+    margin-top: 14px;
+  }
+
+  .tokyo-scroll-scene {
+    height: 220vh;
+  }
+
+  .tokyo-scene-content {
+    justify-content: flex-end;
+    padding-top: 0;
+    padding-bottom: 12vh;
+  }
+
+  .tokyo-temple-layer {
+    justify-content: center;
+    padding: 0 0;
+  }
+
+  .tokyo-temple-card {
+    width: calc(100vw + 4px);
+    max-width: none;
+    max-height: none;
+  }
+
+  .tokyo-temple-card img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tokyo-note-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .tokyo-header-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .tokyo-back {
+    font-size: 0.68rem;
+  }
+
+  .tokyo-intro {
+    padding-top: 104px;
+  }
+
+  .tokyo-scene-copy {
+    max-width: 320px;
+  }
+}
