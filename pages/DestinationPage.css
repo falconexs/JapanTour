@@ -1,0 +1,684 @@
+.destination-page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--black);
+  color: var(--paper);
+}
+
+.destination-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 0 clamp(18px, 5vw, 72px);
+  background: transparent;
+  color: var(--paper);
+}
+
+.destination-header-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 34px);
+}
+
+.destination-brand,
+.destination-nav a,
+.destination-back,
+.destination-kicker,
+.destination-progress {
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.destination-brand,
+.destination-back,
+.destination-nav a {
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.destination-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.destination-brand-mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 0 0 5px rgba(201, 42, 42, 0.16);
+}
+
+.destination-back,
+.destination-nav {
+  color: rgba(251, 248, 241, 0.82);
+  text-shadow: 0 1px 12px rgba(5, 5, 5, 0.34);
+}
+
+.destination-brand:hover,
+.destination-brand:focus-visible,
+.destination-back:hover,
+.destination-back:focus-visible,
+.destination-nav a:hover,
+.destination-nav a:focus-visible,
+.destination-nav a[aria-current="page"] {
+  color: var(--paper);
+  text-shadow: 0 1px 16px rgba(5, 5, 5, 0.58);
+}
+
+.destination-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+}
+
+.destination-scroll-scene {
+  position: relative;
+  height: 250vh;
+  background: var(--city-deep);
+}
+
+.destination-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.destination-bg,
+.destination-building-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.destination-bg {
+  z-index: 1;
+}
+
+.destination-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.destination-building-layer {
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.destination-building {
+  width: calc(100vw + 4px);
+  height: auto;
+  overflow: hidden;
+  opacity: 0;
+  clip-path: inset(16% 0 0 0);
+}
+
+.destination-building img {
+  display: block;
+  width: calc(100vw + 4px);
+  height: auto;
+  object-fit: fill;
+  object-position: center bottom;
+  filter: none;
+}
+
+.destination-scene-content {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 72px) clamp(88px, 12vh, 132px);
+}
+
+.destination-scene-copy {
+  max-width: 560px;
+  color: rgba(251, 248, 241, 0.88);
+  text-shadow: 0 1px 18px rgba(5, 5, 5, 0.46);
+}
+
+.destination-progress {
+  margin: 0 0 18px;
+  color: rgba(251, 248, 241, 0.78);
+}
+
+.destination-scene-copy p:last-child {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.1vw, 2rem);
+  line-height: 1.28;
+}
+
+.destination-intro {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 116px clamp(18px, 5vw, 72px) clamp(70px, 8vw, 118px);
+  background:
+    radial-gradient(circle at 82% 30%, color-mix(in srgb, var(--city-accent) 24%, transparent), transparent 28rem),
+    linear-gradient(180deg, #050505 0%, var(--city-deep) 100%);
+}
+
+.destination-intro-inner,
+.destination-essay-inner,
+.destination-notes-inner,
+.destination-attractions-inner,
+.destination-sequence-inner {
+  width: min(1220px, 100%);
+  margin: 0 auto;
+}
+
+.destination-kicker {
+  margin: 0;
+  color: var(--city-accent);
+}
+
+.destination-title-row {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(18px, 3vw, 46px);
+  margin-top: 18px;
+}
+
+.destination-title {
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(5.4rem, 16vw, 16rem);
+  font-weight: 950;
+  letter-spacing: -0.07em;
+  line-height: 0.78;
+}
+
+.destination-kanji {
+  margin: 0 0 0.05em;
+  color: var(--city-accent);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.destination-editorial-title {
+  max-width: 980px;
+  margin: clamp(34px, 5vw, 64px) 0 0;
+  color: var(--paper);
+  font-size: clamp(2.1rem, 5vw, 5.8rem);
+  font-weight: 720;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.destination-title-word {
+  display: inline-block;
+  margin-right: 0.16em;
+  transform-origin: left bottom;
+}
+
+.destination-description {
+  max-width: 780px;
+  margin: 28px 0 0;
+  color: rgba(251, 248, 241, 0.68);
+  font-size: clamp(1.05rem, 1.55vw, 1.34rem);
+  line-height: 1.65;
+}
+
+.destination-fact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(30px, 4vw, 46px);
+}
+
+.destination-fact-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(251, 248, 241, 0.2);
+  border-radius: 999px;
+  color: rgba(251, 248, 241, 0.78);
+  font-size: 0.78rem;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.destination-essay,
+.destination-notes,
+.destination-attractions,
+.destination-sequence {
+  padding: clamp(86px, 10vw, 150px) clamp(18px, 5vw, 72px);
+}
+
+.destination-essay {
+  background: var(--paper);
+  color: var(--text);
+}
+
+.destination-essay-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+  gap: clamp(40px, 8vw, 118px);
+  align-items: start;
+  margin-top: 24px;
+}
+
+.destination-essay-title {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 7.4rem);
+  font-weight: 640;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.destination-essay-copy {
+  display: grid;
+  gap: 22px;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.7;
+}
+
+.destination-essay-copy p {
+  margin: 0;
+}
+
+.destination-notes {
+  background:
+    linear-gradient(180deg, rgba(251, 248, 241, 0.96), rgba(247, 244, 238, 1)),
+    var(--paper);
+  color: var(--text);
+}
+
+.destination-note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(38px, 6vw, 72px);
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.destination-note {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(22px, 3vw, 34px);
+  background: var(--paper);
+}
+
+.destination-note span {
+  color: var(--city-accent);
+  font-size: 0.8rem;
+  font-weight: 820;
+}
+
+.destination-note h3 {
+  margin: 22px 0 0;
+  font-size: clamp(1.45rem, 2.4vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.destination-note p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.destination-attractions {
+  background: var(--paper);
+  color: var(--text);
+}
+
+.destination-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: end;
+}
+
+.destination-attractions-title {
+  margin: 0;
+  max-width: 860px;
+  font-size: clamp(2.8rem, 6vw, 6.8rem);
+  font-weight: 650;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.destination-attraction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 30px);
+  margin-top: clamp(44px, 6vw, 78px);
+}
+
+.destination-attraction {
+  min-width: 0;
+}
+
+.destination-attraction-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #e7dfd4;
+}
+
+.destination-attraction-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 600ms ease, filter 600ms ease;
+}
+
+.destination-attraction:hover .destination-attraction-image img {
+  transform: scale(1.055);
+  filter: contrast(1.04) saturate(0.96);
+}
+
+.destination-attraction-copy {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  margin-top: 22px;
+}
+
+.destination-attraction-copy span {
+  color: var(--city-accent);
+  font-size: 0.78rem;
+  font-weight: 840;
+}
+
+.destination-attraction-copy h3 {
+  margin: 16px 0 0;
+  font-size: clamp(1.35rem, 2vw, 2.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.destination-attraction-copy p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.58;
+}
+
+.destination-sequence {
+  background: var(--black);
+  color: var(--paper);
+}
+
+.destination-sequence-title {
+  max-width: 860px;
+  margin: 20px 0 0;
+  font-size: clamp(2.7rem, 6vw, 6.5rem);
+  font-weight: 720;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.destination-sequence-list {
+  display: grid;
+  gap: 0;
+  margin: clamp(44px, 6vw, 76px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(251, 248, 241, 0.16);
+}
+
+.destination-sequence-list li {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 20px;
+  padding: clamp(24px, 3vw, 36px) 0;
+  border-bottom: 1px solid rgba(251, 248, 241, 0.16);
+}
+
+.destination-sequence-list span {
+  color: var(--city-accent);
+  font-weight: 840;
+}
+
+.destination-sequence-list p {
+  max-width: 820px;
+  margin: 0;
+  color: rgba(251, 248, 241, 0.78);
+  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+  line-height: 1.45;
+}
+
+.destination-cta {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding: clamp(74px, 9vw, 122px) clamp(18px, 5vw, 72px);
+  background: linear-gradient(180deg, var(--black), var(--city-deep));
+  color: var(--paper);
+  text-align: center;
+}
+
+.destination-cta p {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 6rem);
+  font-weight: 760;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.destination-cta-button,
+.destination-cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 999px;
+  font-weight: 760;
+}
+
+.destination-cta-button {
+  margin-top: 8px;
+  padding: 0 24px;
+  color: var(--black);
+  background: var(--paper);
+}
+
+.destination-cta-button:hover,
+.destination-cta-button:focus-visible {
+  color: var(--paper);
+  background: var(--city-accent);
+}
+
+.destination-cta-link {
+  color: rgba(251, 248, 241, 0.58);
+}
+
+.destination-cta-link:hover,
+.destination-cta-link:focus-visible {
+  color: var(--paper);
+}
+
+.destination-credit {
+  padding: 22px clamp(18px, 5vw, 72px) 28px;
+  background: var(--city-deep);
+  color: rgba(251, 248, 241, 0.62);
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.destination-credit span {
+  color: var(--city-accent);
+}
+
+.destination-credit sup {
+  margin-left: 0.22em;
+  color: rgba(251, 248, 241, 0.46);
+  font-size: 0.62em;
+  vertical-align: super;
+}
+
+@media (max-width: 920px) {
+  .destination-header {
+    position: absolute;
+    min-height: 68px;
+    padding-inline: 18px;
+  }
+
+  .destination-nav {
+    display: none;
+  }
+
+  .destination-scroll-scene {
+    height: 190vh;
+  }
+
+  .destination-sticky {
+    min-height: 100svh;
+    background:
+      linear-gradient(180deg, rgba(247, 244, 238, 0.9) 0%, rgba(247, 244, 238, 0.9) 24%, var(--city-deep) 24%, var(--city-deep) 100%);
+  }
+
+  .destination-bg {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .destination-bg img {
+    width: 100vw;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    object-position: top center;
+    transform-origin: top center;
+  }
+
+  .destination-building-layer {
+    align-items: flex-end;
+  }
+
+  .destination-building {
+    width: calc(118vw + 4px);
+  }
+
+  .destination-building img {
+    width: calc(118vw + 4px);
+  }
+
+  .destination-scene-content {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 22px clamp(260px, 34vh, 330px);
+  }
+
+  .destination-scene-copy {
+    max-width: 88vw;
+  }
+
+  .destination-progress {
+    margin-bottom: 14px;
+    font-size: 0.72rem;
+  }
+
+  .destination-scene-copy p:last-child {
+    font-size: clamp(1.32rem, 7vw, 2rem);
+    line-height: 1.16;
+  }
+
+  .destination-title-row {
+    display: block;
+  }
+
+  .destination-kanji {
+    margin-top: 14px;
+  }
+
+  .destination-essay-grid,
+  .destination-note-grid,
+  .destination-section-heading,
+  .destination-attraction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-note {
+    min-height: 220px;
+  }
+
+  .destination-intro {
+    min-height: auto;
+    padding-top: 92px;
+  }
+
+  .destination-essay,
+  .destination-notes,
+  .destination-attractions,
+  .destination-sequence {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+}
+
+@media (max-width: 560px) {
+  .destination-header-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .destination-back {
+    font-size: 0.68rem;
+  }
+
+  .destination-title {
+    font-size: clamp(4.2rem, 23vw, 7rem);
+  }
+
+  .destination-kanji {
+    font-size: clamp(2.6rem, 15vw, 4.8rem);
+  }
+
+  .destination-editorial-title {
+    font-size: clamp(2.1rem, 12vw, 4rem);
+  }
+
+  .destination-description {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .destination-scene-copy {
+    max-width: 88vw;
+  }
+
+  .destination-sequence-list li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .destination-attractions-title,
+  .destination-essay-title,
+  .destination-sequence-title {
+    letter-spacing: -0.045em;
+  }
+}
